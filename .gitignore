@@ -1,0 +1,22 @@
+*.exe
+*.dll
+*.so
+*.dcu
+*.lib
+*.a
+*.o
+
+# lazarus
+*.ppu
+*.dbg
+*.obj
+*.compiled
+*.lps
+source/*.lps
+source/*.res
+
+lib/
+bin/
+source/backup/
+private/
+test/
