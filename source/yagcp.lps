@@ -3,7 +3,7 @@
   <ProjectSession>
     <PathDelim Value="\"/>
     <Version Value="12"/>
-    <BuildModes Active="Default"/>
+    <BuildModes Active="Release"/>
     <Units>
       <Unit>
         <Filename Value="yagcp.lpr"/>
@@ -21,8 +21,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="112"/>
-        <CursorPos X="42" Y="186"/>
+        <TopLine Value="70"/>
+        <CursorPos X="34" Y="8"/>
         <UsageCount Value="52"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -30,35 +30,31 @@
       <Unit>
         <Filename Value="common.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="-1"/>
         <CursorPos Y="10"/>
         <UsageCount Value="52"/>
-        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="point.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="5"/>
+        <EditorIndex Value="-1"/>
         <CursorPos X="22" Y="21"/>
         <UsageCount Value="52"/>
-        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="gcp.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="6"/>
+        <EditorIndex Value="-1"/>
         <CursorPos X="3" Y="66"/>
         <UsageCount Value="50"/>
-        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="crs.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="1"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="53"/>
         <CursorPos X="22" Y="79"/>
         <UsageCount Value="44"/>
-        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="C:\lazarus\lcl\extctrls.pp"/>
@@ -86,11 +82,10 @@
       <Unit>
         <Filename Value="C:\lazarus\lcl\graphics.pp"/>
         <UnitName Value="Graphics"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="232"/>
         <CursorPos X="11" Y="257"/>
         <UsageCount Value="23"/>
-        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="C:\lazarus\lcl\include\canvas.inc"/>
@@ -135,30 +130,20 @@
       </Unit>
       <Unit>
         <Filename Value="C:\lazarus\fpc\3.2.2\source\packages\fcl-json\src\fpjson.pp"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="33"/>
         <CursorPos X="3" Y="55"/>
         <UsageCount Value="21"/>
-        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\CADSys42\Sources\CADSys4.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="19"/>
+        <CursorPos X="85" Y="9262"/>
+        <UsageCount Value="10"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="main.pas"/>
-        <Caret Line="97" Column="45" TopLine="64"/>
-      </Position>
-      <Position>
-        <Filename Value="main.pas"/>
-        <Caret Line="98" Column="45" TopLine="65"/>
-      </Position>
-      <Position>
-        <Filename Value="main.pas"/>
-        <Caret Line="99" Column="45" TopLine="66"/>
-      </Position>
-      <Position>
-        <Filename Value="main.pas"/>
-        <Caret Line="100" Column="45" TopLine="67"/>
-      </Position>
+    <JumpHistory HistoryIndex="27">
       <Position>
         <Filename Value="main.pas"/>
         <Caret Line="50" Column="18" TopLine="20"/>
@@ -262,6 +247,14 @@
       <Position>
         <Filename Value="main.pas"/>
         <Caret Line="173" Column="49" TopLine="149"/>
+      </Position>
+      <Position>
+        <Filename Value="main.pas"/>
+        <Caret Line="139" Column="39" TopLine="113"/>
+      </Position>
+      <Position>
+        <Filename Value="main.pas"/>
+        <Caret Line="8" Column="3"/>
       </Position>
     </JumpHistory>
     <RunParams>
