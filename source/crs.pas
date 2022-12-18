@@ -59,10 +59,10 @@ var
   i: integer;
 begin
   Result := -1;
-  for i := 0 to length(lst) - 1 do if upcase(id) = upcase(lst[i].id) then begin
-      Result := i;
-      break;
-    end;
+  for i := 0 to length(lst) - 1 do if id = lst[i].id then begin
+    Result := i;
+    break;
+  end;
 end;
 
 function GetCRSDef(const id: string; const lst: TCRSList): string;
