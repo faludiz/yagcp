@@ -52,8 +52,8 @@ type
     procedure VPMouseDown2D(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; WX, WY: TRealType; X, Y: integer);
   private
-    pts:     T3DPointList;
-    gcps:    TGCPList;
+    fpts:     T3DPointList;
+    fgcps:    TGCPList;
     fcrs:    TCRSList;
     fimg:    string;
     fheight: integer;
@@ -87,14 +87,14 @@ var
 begin
   LOG.Clear;
   LOG.Lines.Add(crs.GetCRSDef(cmbCRS.Text, self.fcrs));
-  for i := 0 to length(gcps) - 1 do begin
+  for i := 0 to length(fgcps) - 1 do begin
 
-    idx := getpointindex(gcps[i].Name, self.pts);
+    idx := getpointindex(fgcps[i].Name, self.fpts);
     if idx >= 0 then begin
       LOG.Lines.Add('%0.3f'#9'%0.3f'#9'%0.3f'#9'%0.2f'#9'%0.2f'#9'%s'#9'%s', [
-        pts[idx].x, pts[idx].y, pts[idx].z, gcps[i].px,
-        gcps[i].Height - gcps[i].py, extractfilename(gcps[i].img),
-        pts[idx].Name]);
+        fpts[idx].x, fpts[idx].y, fpts[idx].z, fgcps[i].px,
+        fgcps[i].Height - fgcps[i].py, extractfilename(fgcps[i].img),
+        fpts[idx].Name]);
     end;
 
   end;
@@ -103,8 +103,8 @@ end;
 procedure TfrmMain.btnResetClick(Sender: TObject);
 begin
   //reset
-  setlength(self.gcps, 0);
-  setlength(self.pts, 0);
+  setlength(self.fgcps, 0);
+  setlength(self.fpts, 0);
   lvImages.Clear;
   lvPoints.Clear;
   cmbPoints.Clear;
@@ -140,9 +140,9 @@ var
   idx: integer;
 begin
   // a kombóban lévő pont törlése a képről
-  idx := GetCGPIndex(fimg, cmbPoints.Text, self.gcps);
+  idx := GetCGPIndex(fimg, cmbPoints.Text, self.fgcps);
   if idx >= 0 then begin
-    delgcp(idx, self.gcps);
+    delgcp(idx, self.fgcps);
     Draw(fimg);
     RefreshIMGList;
     RefreshPointList;
@@ -164,10 +164,10 @@ begin
   cad.Layers[1].Pen.Color := clred;
   cad.Layers[1].Pen.Width := 2;
 
-  setlength(pts, 0);
-  setlength(gcps, 0);
+  setlength(fpts, 0);
+  setlength(fgcps, 0);
 
-  cmbPoints.Items.AddStrings(GetPointlist(pts));
+  cmbPoints.Items.AddStrings(GetPointlist(fpts));
   cmbPoints.ItemIndex := 0;
 
 end;
@@ -181,7 +181,7 @@ begin
     LoadPoints(filenames[0]);
     RefreshPointList;
     cmbPoints.Clear;
-    cmbPoints.Items.AddStrings(GetPointlist(self.pts));
+    cmbPoints.Items.AddStrings(GetPointlist(self.fpts));
     if cmbPoints.Items.Count > 0 then cmbPoints.ItemIndex := 0;
   end else begin
     files := TStringList.Create;
@@ -229,7 +229,7 @@ begin
       SendUserEvent(CADPRG_ACCEPT);
       StopOperation;
     end;
-    pidx := getpointindex(cmbPoints.Text, pts);
+    pidx := getpointindex(cmbPoints.Text, fpts);
     if pidx >= 0 then begin
       g.Name   := cmbPoints.Text;
       g.px     := wx;
@@ -238,7 +238,7 @@ begin
       g.Height := fheight;
       g.Width  := fwidth;
       if fileexists(fimg) then begin
-        addgcp(g, gcps);
+        addgcp(g, fgcps);
         Draw(fimg);
         RefreshIMGList;
         RefreshPointList;
@@ -279,13 +279,13 @@ procedure TfrmMain.LoadPoints(const fn: string);
 var
   i: integer;
 begin
-  load3dpoints(fn, self.pts);
+  load3dpoints(fn, self.fpts);
   lvPoints.Clear;
-  for i := 0 to length(pts) - 1 do with lvPoints.Items.Add do begin
-      Caption := pts[i].Name;
-      subitems.Add('%0.3f', [pts[i].x]);
-      subitems.Add('%0.3f', [pts[i].y]);
-      subitems.Add('%0.3f', [pts[i].z]);
+  for i := 0 to length(fpts) - 1 do with lvPoints.Items.Add do begin
+      Caption := fpts[i].Name;
+      subitems.Add('%0.3f', [fpts[i].x]);
+      subitems.Add('%0.3f', [fpts[i].y]);
+      subitems.Add('%0.3f', [fpts[i].z]);
       subitems.Add('0');
       imageindex := 0;
     end;
@@ -313,29 +313,29 @@ begin
   cad.AddObject(0, obj);
   LOG.Lines.Add('image added');
   cad.CurrentLayer := 1;
-  LOG.Lines.Add('gcpcount=%d', [length(gcps)]);
+  LOG.Lines.Add('gcpcount=%d', [length(fgcps)]);
 
-  for i := 0 to length(gcps) - 1 do begin
+  for i := 0 to length(fgcps) - 1 do begin
 
-    LOG.Lines.Add('gcps[%d].img=%s, imgfn=%s', [i, gcps[i].img, imgfn]);
+    LOG.Lines.Add('gcps[%d].img=%s, imgfn=%s', [i, fgcps[i].img, imgfn]);
 
-    if gcps[i].img = imgfn then begin
+    if fgcps[i].img = imgfn then begin
 
       cad.AddObject(1, tellipse2d.Create(1, point2d(
-        gcps[i].px - 20, gcps[i].py - 20), point2d(gcps[i].px + 20, gcps[i].py + 20)));
+        fgcps[i].px - 20, fgcps[i].py - 20), point2d(fgcps[i].px + 20, fgcps[i].py + 20)));
 
       cad.AddObject(1, cs4shapes.TText2D.Create(1, rect2d(
-        gcps[i].px + 30, gcps[i].py, gcps[i].px + 200, gcps[i].py + 40),
-        40, gcps[i].Name));
+        fgcps[i].px + 30, fgcps[i].py, fgcps[i].px + 200, fgcps[i].py + 40),
+        40, fgcps[i].Name));
 
       cad.AddObject(1, cs4shapes.TLine2D.Create(1, point2d(
-        gcps[i].px - 60, gcps[i].py), point2d(gcps[i].px + 60, gcps[i].py)));
+        fgcps[i].px - 60, fgcps[i].py), point2d(fgcps[i].px + 60, fgcps[i].py)));
 
       cad.AddObject(1, cs4shapes.TLine2D.Create(1, point2d(
-        gcps[i].px, gcps[i].py - 60), point2d(gcps[i].px, gcps[i].py + 60)));
+        fgcps[i].px, fgcps[i].py - 60), point2d(fgcps[i].px, fgcps[i].py + 60)));
 
       LOG.Lines.Add('gcp: img=%s, name=%s, x=%f, y=%f',
-        [gcps[i].img, gcps[i].Name, gcps[i].px, gcps[i].py]);
+        [fgcps[i].img, fgcps[i].Name, fgcps[i].px, fgcps[i].py]);
 
     end;
 
@@ -355,7 +355,7 @@ var
 begin
   for i := 0 to lvImages.Items.Count - 1 do begin
     lvImages.Items[i].SubItems[1] :=
-      IntToStr(getgcpcount(lvImages.Items[i].SubItems[0], gcps));
+      IntToStr(getgcpcount(lvImages.Items[i].SubItems[0], fgcps));
   end;
 end;
 
@@ -366,11 +366,11 @@ var
 begin
   for i := 0 to lvPoints.Items.Count - 1 do begin
     lvPoints.Items[i].SubItems[3] :=
-      IntToStr(getimgcount(lvPoints.Items[i].Caption, gcps));
+      IntToStr(getimgcount(lvPoints.Items[i].Caption, fgcps));
   end;
   c := cmbPoints.ItemIndex;
   cmbPoints.Clear;
-  cmbPoints.Items.AddStrings(getpointlist(self.pts));
+  cmbPoints.Items.AddStrings(getpointlist(self.fpts));
   if c < cmbPoints.Items.Count then cmbPoints.ItemIndex := c;
 end;
 
