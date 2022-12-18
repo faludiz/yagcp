@@ -104,15 +104,6 @@
     </RunParams>
     <RequiredPackages>
       <Item>
-        <PackageName Value="JvCustomLazR"/>
-      </Item>
-      <Item>
-        <PackageName Value="cadsys"/>
-      </Item>
-      <Item>
-        <PackageName Value="GR32_Lazarus"/>
-      </Item>
-      <Item>
         <PackageName Value="LCL"/>
       </Item>
     </RequiredPackages>
