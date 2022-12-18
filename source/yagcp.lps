@@ -8,11 +8,9 @@
       <Unit>
         <Filename Value="yagcp.lpr"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="1"/>
-        <CursorPos X="14" Y="13"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="25" Y="19"/>
         <UsageCount Value="58"/>
-        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="main.pas"/>
@@ -21,7 +19,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <TopLine Value="150"/>
-        <CursorPos X="37" Y="164"/>
+        <CursorPos X="33" Y="157"/>
         <UsageCount Value="58"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -29,31 +27,31 @@
       <Unit>
         <Filename Value="common.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="-1"/>
         <CursorPos Y="10"/>
         <UsageCount Value="58"/>
-        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="point.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="-1"/>
         <CursorPos X="21"/>
         <UsageCount Value="58"/>
-        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="gcp.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="5"/>
+        <EditorIndex Value="-1"/>
         <CursorPos X="5" Y="78"/>
         <UsageCount Value="56"/>
-        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="crs.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="4"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="29"/>
+        <CursorPos X="22" Y="40"/>
         <UsageCount Value="50"/>
         <Loaded Value="True"/>
       </Unit>
@@ -159,7 +157,7 @@
         <UsageCount Value="10"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="29">
+    <JumpHistory HistoryIndex="18">
       <Position>
         <Filename Value="main.pas"/>
         <Caret Line="216" TopLine="199"/>
@@ -185,36 +183,8 @@
         <Caret Line="290" Column="3" TopLine="285"/>
       </Position>
       <Position>
-        <Filename Value="point.pas"/>
-        <Caret Line="18" Column="11" TopLine="3"/>
-      </Position>
-      <Position>
-        <Filename Value="point.pas"/>
-        <Caret Line="42" Column="16" TopLine="22"/>
-      </Position>
-      <Position>
-        <Filename Value="point.pas"/>
-        <Caret Line="19" Column="10" TopLine="4"/>
-      </Position>
-      <Position>
-        <Filename Value="point.pas"/>
-        <Caret Line="42" Column="18" TopLine="29"/>
-      </Position>
-      <Position>
-        <Filename Value="point.pas"/>
-        <Caret Line="19" Column="10" TopLine="3"/>
-      </Position>
-      <Position>
         <Filename Value="main.pas"/>
         <Caret Line="293" Column="19" TopLine="285"/>
-      </Position>
-      <Position>
-        <Filename Value="point.pas"/>
-        <Caret Line="18" Column="11" TopLine="3"/>
-      </Position>
-      <Position>
-        <Filename Value="point.pas"/>
-        <Caret Line="39" Column="13" TopLine="25"/>
       </Position>
       <Position>
         <Filename Value="main.pas"/>
@@ -262,23 +232,7 @@
       </Position>
       <Position>
         <Filename Value="crs.pas"/>
-        <Caret Line="18" Column="23" TopLine="13"/>
-      </Position>
-      <Position>
-        <Filename Value="crs.pas"/>
-        <Caret Line="41" Column="61" TopLine="26"/>
-      </Position>
-      <Position>
-        <Filename Value="crs.pas"/>
-        <Caret Line="32" Column="6" TopLine="17"/>
-      </Position>
-      <Position>
-        <Filename Value="crs.pas"/>
-        <Caret Line="29" Column="21" TopLine="26"/>
-      </Position>
-      <Position>
-        <Filename Value="crs.pas"/>
-        <Caret Line="18" Column="19" TopLine="18"/>
+        <Caret Line="18" Column="18"/>
       </Position>
     </JumpHistory>
     <RunParams>
