@@ -4,8 +4,17 @@
 
 ## Requirements
 
+- GIT: https://git-scm.com/
 - Lazarus: https://www.lazarus-ide.org/
-- CADSys42: https://github.com/faludiz/CADSys42
+
+## Build
+
+```terminal
+git clone https://github.com/faludiz/CADSys42.git
+git clone https://github.com/faludiz/yagcp.git
+cd yagcp
+build.bat
+```
 
 ## Usage
 
