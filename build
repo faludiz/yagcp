@@ -1,0 +1,4 @@
+rm -rf bin/
+cd source
+lazbuild --build-all --build-mode=release --no-write-project yagcp.lpi
+cd ..
