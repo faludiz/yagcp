@@ -2,6 +2,8 @@
 
 **Y**et **A**nother **GCP** creator for [WebODM](https://www.opendronemap.org/webodm/)
 
+![Képernyőkép 2022-12-19 171015](https://user-images.githubusercontent.com/89804084/208470295-81555bc6-1bac-4237-9524-dde0944c86ae.png)
+
 ## Requirements
 
 - GIT: https://git-scm.com/
