@@ -15,13 +15,14 @@ type
 
   TfrmMain = class(TForm)
     btnDel: TButton;
-    btnGCPList: TButton;
+    btnSaveGCPFile: TButton;
     btnReset: TButton;
     btnLoadImages: TButton;
     brnLoadPoints: TButton;
     CAD: TCADCmp2D;
     cmbPoints: TComboBox;
     cmbCRS: TComboBox;
+    IdleTimer1: TIdleTimer;
     imlSmall: TImageList;
     Label1: TLabel;
     Label2: TLabel;
@@ -33,18 +34,21 @@ type
     Panel2: TPanel;
     Panel3: TPanel;
     PRG: TCADPrg2D;
+    sdGCP: TSaveDialog;
     Splitter1: TSplitter;
     Splitter2: TSplitter;
     Splitter3: TSplitter;
+    SB: TStatusBar;
     VP:  TCADViewport2D;
     LOG: TMemo;
     procedure btnDelClick(Sender: TObject);
-    procedure btnGCPListClick(Sender: TObject);
+    procedure btnSaveGCPFileClick(Sender: TObject);
     procedure btnResetClick(Sender: TObject);
     procedure btnLoadImagesClick(Sender: TObject);
     procedure brnLoadPointsClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDropFiles(Sender: TObject; const FileNames: array of string);
+    procedure IdleTimer1Timer(Sender: TObject);
     procedure lvImagesDblClick(Sender: TObject);
     procedure lvPointsClick(Sender: TObject);
     procedure Panel1MouseWheel(Sender: TObject; Shift: TShiftState;
@@ -80,23 +84,25 @@ implementation
 
 { TfrmMain }
 
-procedure TfrmMain.btnGCPListClick(Sender: TObject);
+procedure TfrmMain.btnSaveGCPFileClick(Sender: TObject);
 var
   i:   integer;
   idx: integer;
+  txt: TStringlist;
 begin
-  LOG.Clear;
-  LOG.Lines.Add(crs.GetCRSDef(cmbCRS.Text, self.fcrs));
-  for i := 0 to length(fgcps) - 1 do begin
-
-    idx := getpointindex(fgcps[i].Name, self.fpts);
-    if idx >= 0 then begin
-      LOG.Lines.Add('%0.3f'#9'%0.3f'#9'%0.3f'#9'%0.2f'#9'%0.2f'#9'%s'#9'%s', [
-        fpts[idx].x, fpts[idx].y, fpts[idx].z, fgcps[i].px,
-        fgcps[i].Height - fgcps[i].py, extractfilename(fgcps[i].img),
-        fpts[idx].Name]);
+  if sdGCP.Execute then begin;
+    txt:=TStringlist.Create;
+    txt.Add(crs.GetCRSDef(cmbCRS.Text, self.fcrs));
+    for i := 0 to length(fgcps) - 1 do begin
+      idx := getpointindex(fgcps[i].Name, self.fpts);
+      if idx >= 0 then begin
+        txt.Add('%0.3f'#9'%0.3f'#9'%0.3f'#9'%0.2f'#9'%0.2f'#9'%s'#9'%s', [
+          fpts[idx].x, fpts[idx].y, fpts[idx].z, fgcps[i].px,
+          fgcps[i].Height - fgcps[i].py, extractfilename(fgcps[i].img),
+          fpts[idx].Name]);
+      end;
     end;
-
+    txt.Free;
   end;
 end;
 
@@ -191,6 +197,15 @@ begin
     RefreshIMGList;
   end;
 
+end;
+
+procedure TfrmMain.IdleTimer1Timer(Sender: TObject);
+begin
+  sb.SimpleText:=format('images: %d, points: %d, gcps: %d',[
+    lvImages.Items.Count,
+    lvPoints.Items.Count,
+    length(fgcps)
+  ]);
 end;
 
 procedure TfrmMain.lvImagesDblClick(Sender: TObject);
