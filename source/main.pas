@@ -102,6 +102,7 @@ begin
           fpts[idx].Name]);
       end;
     end;
+    txt.SaveToFile(sdGCP.FileName);
     txt.Free;
   end;
 end;
@@ -157,6 +158,8 @@ end;
 
 procedure TfrmMain.FormCreate(Sender: TObject);
 begin
+
+  DefaultFormatSettings.DecimalSeparator:='.';
 
   loadcrs(fcrs);
   LOG.Lines.Add('crs=%d', [length(fcrs)]);
