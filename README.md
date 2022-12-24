@@ -28,3 +28,9 @@ build.bat
 - When it's all done select your CRS and click [GCP list] button and save results to file (ie: gcp_for_webodm.txt)
 - Add the saved file to your WebODM project
 - Enjoy.
+
+## Support: Buy me a coffee
+
+[![bmc_qr](https://user-images.githubusercontent.com/89804084/208740036-e8d7cd50-1aed-4ae8-a36c-f4d221958299.png)](https://www.buymeacoffee.com/faludiz)
+
+https://www.buymeacoffee.com/faludiz
