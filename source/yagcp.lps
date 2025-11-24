@@ -19,8 +19,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="185"/>
-        <CursorPos X="12" Y="207"/>
+        <TopLine Value="233"/>
+        <CursorPos X="6" Y="242"/>
         <UsageCount Value="59"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -192,7 +192,7 @@
         <UsageCount Value="10"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="24">
+    <JumpHistory HistoryIndex="28">
       <Position>
         <Filename Value="crs.pas"/>
         <Caret Line="18" Column="18"/>
@@ -292,6 +292,22 @@
       <Position>
         <Filename Value="main.pas"/>
         <Caret Line="99" Column="13" TopLine="80"/>
+      </Position>
+      <Position>
+        <Filename Value="main.pas"/>
+        <Caret Line="207" Column="12" TopLine="185"/>
+      </Position>
+      <Position>
+        <Filename Value="main.pas"/>
+        <Caret Line="234" TopLine="231"/>
+      </Position>
+      <Position>
+        <Filename Value="main.pas"/>
+        <Caret Line="243" Column="20" TopLine="233"/>
+      </Position>
+      <Position>
+        <Filename Value="main.pas"/>
+        <Caret Line="258" Column="26" TopLine="253"/>
       </Position>
     </JumpHistory>
     <RunParams>

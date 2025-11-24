@@ -7,10 +7,10 @@ object frmMain: TfrmMain
   Caption = 'YAGCP - © Faludi Zoltán / IntelliGEO Kft'
   ClientHeight = 771
   ClientWidth = 1317
+  ShowHint = True
+  LCLVersion = '4.4.0.0'
   OnCreate = FormCreate
   OnDropFiles = FormDropFiles
-  ShowHint = True
-  LCLVersion = '2.2.4.0'
   object LOG: TMemo
     Left = 0
     Height = 112
@@ -23,22 +23,23 @@ object frmMain: TfrmMain
   end
   object Panel2: TPanel
     Left = 0
-    Height = 589
-    Top = 42
+    Height = 588
+    Top = 43
     Width = 1317
     Align = alClient
     Caption = 'Panel2'
-    ClientHeight = 589
+    ClientHeight = 588
     ClientWidth = 1317
     TabOrder = 1
     object lvPoints: TListView
       Left = 1014
-      Height = 587
+      Height = 586
       Hint = 'Drag points here (only CSV and TXT supported)'
       Top = 1
       Width = 302
       Align = alRight
       AutoSortIndicator = True
+      BorderStyle = bsNone
       Columns = <      
         item
           AutoSize = True
@@ -83,12 +84,13 @@ object frmMain: TfrmMain
     end
     object lvImages: TListView
       Left = 1
-      Height = 587
+      Height = 586
       Hint = 'Drag images here (only JPG is supported)'
       Top = 1
       Width = 250
       Align = alLeft
       AutoSortIndicator = True
+      BorderStyle = bsNone
       Columns = <      
         item
           AutoSize = True
@@ -120,19 +122,20 @@ object frmMain: TfrmMain
     end
     object Panel1: TPanel
       Left = 256
-      Height = 587
+      Height = 586
       Top = 1
       Width = 753
       Align = alClient
       Caption = 'Panel1'
-      ClientHeight = 587
+      ClientHeight = 586
       ClientWidth = 753
       TabOrder = 2
-      OnMouseWheel = Panel1MouseWheel
+      OnMouseWheelDown = Panel1MouseWheelDown
+      OnMouseWheelUp = Panel1MouseWheelUp
       object VP: TCADViewport2D
         Cursor = crNone
         Left = 1
-        Height = 585
+        Height = 584
         Hint = 'Left: pan / Right: palce GCP'
         Top = 1
         Width = 751
@@ -145,13 +148,13 @@ object frmMain: TfrmMain
     end
     object Splitter1: TSplitter
       Left = 251
-      Height = 587
+      Height = 586
       Top = 1
       Width = 5
     end
     object Splitter2: TSplitter
       Left = 1009
-      Height = 587
+      Height = 586
       Top = 1
       Width = 5
       Align = alRight
@@ -160,7 +163,7 @@ object frmMain: TfrmMain
   end
   object Panel3: TPanel
     Left = 0
-    Height = 42
+    Height = 43
     Top = 0
     Width = 1317
     Align = alTop
@@ -172,51 +175,51 @@ object frmMain: TfrmMain
     ChildSizing.EnlargeHorizontal = crsScaleChilds
     ChildSizing.Layout = cclLeftToRightThenTopToBottom
     ChildSizing.ControlsPerLine = 10
-    ClientHeight = 42
+    ClientHeight = 43
     ClientWidth = 1317
     TabOrder = 2
     object btnLoadImages: TButton
-      Left = 8
+      Left = 9
       Height = 25
-      Top = 8
-      Width = 185
+      Top = 9
+      Width = 184
       Caption = 'Load images'
-      OnClick = btnLoadImagesClick
       TabOrder = 5
+      OnClick = btnLoadImagesClick
     end
     object brnLoadPoints: TButton
       Left = 201
       Height = 25
-      Top = 8
+      Top = 9
       Width = 175
       Caption = 'Load points'
-      OnClick = brnLoadPointsClick
       TabOrder = 6
+      OnClick = brnLoadPointsClick
     end
     object btnReset: TButton
       Left = 384
       Height = 25
-      Top = 8
-      Width = 108
+      Top = 9
+      Width = 107
       Caption = 'Reset'
-      OnClick = btnResetClick
       TabOrder = 4
+      OnClick = btnResetClick
     end
     object Label1: TLabel
-      Left = 500
+      Left = 499
       Height = 15
-      Top = 13
-      Width = 49
+      Top = 14
+      Width = 47
       Alignment = taRightJustify
       BorderSpacing.CellAlignVertical = ccaCenter
       Caption = 'CRS:'
       ParentColor = False
     end
     object cmbCRS: TComboBox
-      Left = 557
+      Left = 554
       Height = 23
-      Top = 8
-      Width = 197
+      Top = 9
+      Width = 199
       AutoComplete = True
       AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactSearchAscending]
       AutoDropDown = True
@@ -225,18 +228,18 @@ object frmMain: TfrmMain
       Text = 'cmbCRS'
     end
     object btnSaveGCPFile: TButton
-      Left = 762
+      Left = 761
       Height = 25
-      Top = 8
+      Top = 9
       Width = 188
       Caption = 'Save GCP file'
-      OnClick = btnSaveGCPFileClick
       TabOrder = 0
+      OnClick = btnSaveGCPFileClick
     end
     object Label2: TLabel
-      Left = 958
+      Left = 957
       Height = 15
-      Top = 13
+      Top = 14
       Width = 52
       Alignment = taRightJustify
       BorderSpacing.CellAlignVertical = ccaCenter
@@ -244,10 +247,10 @@ object frmMain: TfrmMain
       ParentColor = False
     end
     object cmbPoints: TComboBox
-      Left = 1018
+      Left = 1017
       Height = 23
-      Top = 8
-      Width = 197
+      Top = 9
+      Width = 198
       ItemHeight = 15
       Style = csDropDownList
       TabOrder = 2
@@ -255,11 +258,11 @@ object frmMain: TfrmMain
     object btnDel: TButton
       Left = 1223
       Height = 25
-      Top = 8
-      Width = 86
+      Top = 9
+      Width = 85
       Caption = 'Del'
-      OnClick = btnDelClick
       TabOrder = 1
+      OnClick = btnDelClick
     end
   end
   object Splitter3: TSplitter

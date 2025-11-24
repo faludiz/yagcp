@@ -51,8 +51,10 @@ type
     procedure IdleTimer1Timer(Sender: TObject);
     procedure lvImagesDblClick(Sender: TObject);
     procedure lvPointsClick(Sender: TObject);
-    procedure Panel1MouseWheel(Sender: TObject; Shift: TShiftState;
-      WheelDelta: integer; MousePos: TPoint; var Handled: boolean);
+    procedure Panel1MouseWheelDown(Sender: TObject; Shift: TShiftState;
+      MousePos: TPoint; var Handled: Boolean);
+    procedure Panel1MouseWheelUp(Sender: TObject; Shift: TShiftState;
+      MousePos: TPoint; var Handled: Boolean);
     procedure VPMouseDown2D(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; WX, WY: TRealType; X, Y: integer);
   private
@@ -226,12 +228,46 @@ begin
   end;
 end;
 
-procedure TfrmMain.Panel1MouseWheel(Sender: TObject; Shift: TShiftState;
-  WheelDelta: integer; MousePos: TPoint; var Handled: boolean);
+procedure TfrmMain.Panel1MouseWheelDown(Sender: TObject; Shift: TShiftState;
+  MousePos: TPoint; var Handled: Boolean);
+var
+  OldWorldPt, NewWorldPt: TPoint2D;
+  DX, DY: Double;
 begin
-  if wheeldelta < 0 then VP.ZoomOut
-  else
-    Vp.ZoomIn;
+  VP.BeginUpdate;
+  OldWorldPt := VP.ScreenToViewport(Point2D(MousePos.X, MousePos.Y));
+
+  VP.ZoomOut;
+
+  NewWorldPt := VP.ScreenToViewport(Point2D(MousePos.X, MousePos.Y));
+
+  DX := OldWorldPt.X - NewWorldPt.X;
+  DY := OldWorldPt.Y - NewWorldPt.Y;
+
+  VP.PanWindow(DX, DY);
+  VP.EndUpdate;
+  Handled := True;
+end;
+
+procedure TfrmMain.Panel1MouseWheelUp(Sender: TObject; Shift: TShiftState;
+  MousePos: TPoint; var Handled: Boolean);
+var
+  OldWorldPt, NewWorldPt: TPoint2D;
+  DX, DY: Double;
+begin
+  VP.BeginUpdate;
+  OldWorldPt := VP.ScreenToViewport(Point2D(MousePos.X, MousePos.Y));
+
+  VP.ZoomIn;
+
+  NewWorldPt := VP.ScreenToViewport(Point2D(MousePos.X, MousePos.Y));
+
+  DX := OldWorldPt.X - NewWorldPt.X;
+  DY := OldWorldPt.Y - NewWorldPt.Y;
+
+  VP.PanWindow(DX, DY);
+  VP.EndUpdate;
+  Handled := True;
 end;
 
 procedure TfrmMain.VPMouseDown2D(Sender: TObject; Button: TMouseButton;
