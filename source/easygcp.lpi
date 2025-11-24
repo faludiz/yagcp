@@ -5,7 +5,7 @@
     <PathDelim Value="\"/>
     <General>
       <SessionStorage Value="InProjectDir"/>
-      <Title Value="yagcp"/>
+      <Title Value="easygcp"/>
       <Scaled Value="True"/>
       <ResourceType Value="res"/>
       <UseXPManifest Value="True"/>
@@ -24,7 +24,7 @@
           <Version Value="11"/>
           <PathDelim Value="\"/>
           <Target>
-            <Filename Value="..\bin\yagcp"/>
+            <Filename Value="..\bin\easygcp"/>
           </Target>
           <SearchPaths>
             <IncludeFiles Value="$(ProjOutDir)"/>
@@ -66,7 +66,7 @@
           <Version Value="11"/>
           <PathDelim Value="\"/>
           <Target>
-            <Filename Value="..\bin\yagcp"/>
+            <Filename Value="..\bin\easygcp"/>
           </Target>
           <SearchPaths>
             <IncludeFiles Value="$(ProjOutDir)"/>
@@ -109,7 +109,7 @@
     </RequiredPackages>
     <Units>
       <Unit>
-        <Filename Value="yagcp.lpr"/>
+        <Filename Value="easygcp.lpr"/>
         <IsPartOfProject Value="True"/>
       </Unit>
       <Unit>
@@ -141,7 +141,7 @@
     <Version Value="11"/>
     <PathDelim Value="\"/>
     <Target>
-      <Filename Value="..\bin\yagcp"/>
+      <Filename Value="..\bin\easygcp"/>
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>

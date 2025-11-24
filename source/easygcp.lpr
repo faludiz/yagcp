@@ -1,4 +1,4 @@
-program yagcp;
+program easygcp;
 
 {$mode objfpc}{$H+}
 

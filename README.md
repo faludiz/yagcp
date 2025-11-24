@@ -1,6 +1,6 @@
-# YAGCP
+# EasyGCP
 
-**Y**et **A**nother **GCP** creator for [WebODM](https://www.opendronemap.org/webodm/)
+A simple tool for creating Ground Control Point files for [WebODM](https://www.opendronemap.org/webodm/)
 
 ![Képernyőkép 2022-12-19 171015](https://user-images.githubusercontent.com/89804084/208470295-81555bc6-1bac-4237-9524-dde0944c86ae.png)
 
@@ -13,8 +13,8 @@
 
 ```terminal
 git clone https://github.com/faludiz/CADSys42.git
-git clone https://github.com/faludiz/yagcp.git
-cd yagcp
+git clone https://github.com/faludiz/EasyGCP.git
+cd EasyGCP
 build.bat
 ```
 

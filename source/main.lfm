@@ -4,7 +4,7 @@ object frmMain: TfrmMain
   Top = 149
   Width = 1317
   AllowDropFiles = True
-  Caption = 'YAGCP - © Faludi Zoltán / IntelliGEO Kft'
+  Caption = 'EasyGCP - © Faludi Zoltán / IntelliGEO Kft'
   ClientHeight = 771
   ClientWidth = 1317
   ShowHint = True
