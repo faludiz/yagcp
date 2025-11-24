@@ -2,7 +2,8 @@
 
 A simple tool for creating Ground Control Point files for [WebODM](https://www.opendronemap.org/webodm/)
 
-![Képernyőkép 2022-12-19 171015](https://user-images.githubusercontent.com/89804084/208470295-81555bc6-1bac-4237-9524-dde0944c86ae.png)
+<img width="100%" alt="EasyGCP 25.11.24" src="https://github.com/user-attachments/assets/9a75003c-3c44-4d9d-a4ca-24f795059b93" />
+
 
 ## Requirements
 
